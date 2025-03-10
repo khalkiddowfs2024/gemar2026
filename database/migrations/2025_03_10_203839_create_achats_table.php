@@ -17,9 +17,7 @@ return new class extends Migration
             $table->double('remise')->nullable();
             $table->text('observation')->nullable();
             $table->foreignId('fournisseur_id')->constrained();
-
-
-
+            $table->boolean('regle',false);
             $table->timestamps();
         });
     }

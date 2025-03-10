@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->double('remise')->nullable();
             $table->text('observation')->nullable();
+            $table->boolean('regle',false);
 
 
 
