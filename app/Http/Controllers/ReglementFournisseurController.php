@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reglement;
+use App\Models\ReglementFournisseur;
 use Illuminate\Http\Request;
 
-class ReglementController extends Controller
+class ReglementFournisseurController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ReglementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Reglement $reglement)
+    public function show(ReglementFournisseur $reglementFournisseur)
     {
         //
     }
@@ -42,7 +42,7 @@ class ReglementController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reglement $reglement)
+    public function edit(ReglementFournisseur $reglementFournisseur)
     {
         //
     }
@@ -50,7 +50,7 @@ class ReglementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reglement $reglement)
+    public function update(Request $request, ReglementFournisseur $reglementFournisseur)
     {
         //
     }
@@ -58,7 +58,7 @@ class ReglementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reglement $reglement)
+    public function destroy(ReglementFournisseur $reglementFournisseur)
     {
         //
     }

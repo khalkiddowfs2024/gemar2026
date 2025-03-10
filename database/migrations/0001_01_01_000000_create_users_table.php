@@ -17,6 +17,19 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('adresse')->nullable();
+            $table->string('ville')->nullable();
+            $table->string('cp')->nullable();
+            $table->string('pays')->nullable();
+            $table->string('tel')->nullable();
+
+            $table->boolean('is_admin',false);
+            $table->boolean('is_livreur',false);
+            $table->boolean('is_caissier',false);
+            $table->boolean('is_client',true);
+            $table->string('photo')->nullable();
+            $table->double('solde')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

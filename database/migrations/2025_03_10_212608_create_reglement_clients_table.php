@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reglements', function (Blueprint $table) {
+        Schema::create('reglement_clients', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('date')->useCurrent();
+            $table->double('montant')->nullable();
+            $table->string('document')->nullable();
+            $table->foreignId('mode_reglement_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reglements');
+        Schema::dropIfExists('reglement_clients');
     }
 };

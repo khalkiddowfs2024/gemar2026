@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('detail_achats', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('achat_id')->constrained();
+            $table->foreignId('produit_id')->constrained();
+            $table->double('quantite')->default(1);
+            $table->double('prix_ht')->nullable();
+            $table->double('tva')->nullable();
+            $table->double('remise')->nullable();
             $table->timestamps();
         });
     }

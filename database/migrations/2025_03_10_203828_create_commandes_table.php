@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('date')->useCurrent();
+            $table->foreignId('etat_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->double('remise')->nullable();
+            $table->text('observation')->nullable();
+
+
+
             $table->timestamps();
         });
     }

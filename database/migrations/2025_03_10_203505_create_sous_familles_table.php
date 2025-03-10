@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('sous_familles', function (Blueprint $table) {
             $table->id();
+            $table->string('sous_famille');
+            $table->string('image')->nullable();
+            $table->foreignId('famille_id')->constrained();
+
             $table->timestamps();
         });
     }

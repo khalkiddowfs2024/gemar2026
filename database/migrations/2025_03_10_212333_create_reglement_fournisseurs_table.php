@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('familles', function (Blueprint $table) {
+        Schema::create('reglement_fournisseurs', function (Blueprint $table) {
             $table->id();
-            $table->string('famille');
-            $table->string('image')->nullable();
-            $table->foreignId('categorie_id')->constrained();
-
+            $table->timestamp('date')->useCurrent();
+            $table->double('montant')->nullable();
+            $table->string('document')->nullable();
+            $table->foreignId('mode_reglement_id')->constrained();
+            $table->foreignId('fournisseur_id')->constrained();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('familles');
+        Schema::dropIfExists('reglement_fournisseurs');
     }
 };

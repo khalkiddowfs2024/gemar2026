@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('achats', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('date')->useCurrent();
+            $table->double('remise')->nullable();
+            $table->text('observation')->nullable();
+            $table->foreignId('fournisseur_id')->constrained();
+
+
+
             $table->timestamps();
         });
     }
