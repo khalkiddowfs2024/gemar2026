@@ -20,6 +20,8 @@ return new class extends Migration
             $table->double('tva')->nullable();
             $table->double('remise')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

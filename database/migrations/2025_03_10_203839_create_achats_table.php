@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignId('fournisseur_id')->constrained();
             $table->boolean('regle',false);
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

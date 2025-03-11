@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('marque');
             $table->string('image')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

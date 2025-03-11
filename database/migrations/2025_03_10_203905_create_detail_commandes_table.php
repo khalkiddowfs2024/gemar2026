@@ -21,6 +21,8 @@ return new class extends Migration
             $table->double('remise')->nullable();;
 
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

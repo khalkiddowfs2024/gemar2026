@@ -29,8 +29,8 @@ return new class extends Migration
             $table->text('observation')->nullable();
             $table->string('photo')->nullable();
             $table->double('solde')->nullable();
-
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

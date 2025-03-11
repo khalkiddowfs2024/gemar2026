@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('mode_reglement');
             $table->boolean('espece',false);
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

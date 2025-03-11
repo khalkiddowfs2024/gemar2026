@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('categorie_id')->constrained();
 
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

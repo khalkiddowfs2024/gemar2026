@@ -19,10 +19,9 @@ return new class extends Migration
             $table->double('remise')->nullable();
             $table->text('observation')->nullable();
             $table->boolean('regle',false);
-
-
-
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

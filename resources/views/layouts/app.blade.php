@@ -23,7 +23,7 @@
         <!-- Go Up button -->
         @include('layouts.go_up_button')
         <!-- Page Loader -->
-        @include('layouts.preloader')
+        <!--@include('layouts.preloader')-->
     </div>
     <!-- Vendor JS -->
     @include('layouts.js')

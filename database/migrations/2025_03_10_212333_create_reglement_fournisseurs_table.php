@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignId('mode_reglement_id')->constrained();
             $table->foreignId('fournisseur_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
