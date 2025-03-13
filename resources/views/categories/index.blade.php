@@ -2,102 +2,61 @@
 @section('content')
 
 
-<body class="home home-1">
-    <div id="all">
+<div id="all">
+    <!-- Main Content -->
+    <div id="content" class="site-content">
+        <!-- Breadcrumb -->
+        <div class="row">
 
+            <!-- Page Content -->
+            <div id="center-column" class="col-lg-12 col-md-12">
+                <div class="product-category-page">
+                    <a href="{{route('categories.create')}}" class="btn btn-success">Ajouter</a>
 
-        <!-- Main Content -->
-        <div id="content" class="site-content">
-            <!-- Breadcrumb -->
+                    <div class="page-cart">
+                        <div class="table-responsive">
+                            <table class="cart-summary table table-bordered">
+                                <thead>
+                                    <tr>
 
+                                        <th class="width-80 text-center">Image</th>
+                                        <th>Categorie</th>
+                                        <th class="width-100 text-center">Action</th>
+                                    </tr>
+                                </thead>
 
-
-            <div class="container">
-                <div class="row">
-
-                    <!-- Page Content -->
-                    <div id="center-column" class="col-lg-12 col-md-12">
-                        <div class="product-category-page">
-                            <!-- Nav Bar -->
-                            <div class="products-bar">
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-6">
-                                        <div class="total-products">There are 12 products</div>
-                                    </div>
-
-                                    <div class="col-md-6 col-xs-6">
-                                        <div class="filter-bar">
-                                            <form action="#" class="pull-right">
-                                                <div class="select">
-                                                    <select class="form-control">
-                                                        <option value="">Sort By</option>
-                                                        <option value="3">Product Name: A to Z</option>
-                                                        <option value="4">Product Name: Z to A</option>
-                                                        <option value="5">In stock</option>
-                                                    </select>
-                                                </div>
+                                <tbody>
+                                    @foreach($categories as $categorie)
+                                    
+                                    <tr>
+                                        <td>
+                                            <a href="product-detail-left-sidebar.html">
+                                                <img width="80" alt="Product Image" class="img-responsive" src="{{asset('storage/'.$categorie->image)}}">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="product-detail-left-sidebar.html" class="product-name">{{$categorie->categorie}}</a>
+                                        </td>
+                                        <td>
+                                            
+                                            <a href="{{route('categories.edit',2)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                            <form action="{{route('categories.destroy',$categorie->id)}}" method="POST" style="display: inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                             </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-success">Ajouter </button>
+                                        </td>
 
-                            <div class="tab-content">
-                                <!-- Products Grid -->
-                                <div class="tab-pane active" id="products-grid">
-                                    <div class="products-block">
-                                        <div class="row">
-                                            @foreach($categories as $categorie)
-                                            <div class="col-md-3 col-sm-4 col-xs-12">
-                                                <div class="product-item">
-                                                    <div class="product-image">
-                                                        <a href="product-detail-left-sidebar.html">
-                                                            <img class="img-responsive" src="img/product/4.jpg" alt="Product Image">
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="product-title">
-                                                        <a href="product-detail-left-sidebar.html">
-                                                            {{$categorie->categorie}}
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Pagination Bar -->
-                            <div class="pagination-bar">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <div class="text">Showing 1-12 of 20 item(s)</div>
-                                    </div>
-
-                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <div class="pagination">
-                                            <ul class="page-list">
-                                                <li><a href="#" class="prev">Previous</a></li>
-                                                <li><a href="#" class="current">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#" class="next">Next</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
-
-
     </div>
-</body>
-
-</html>
+</div>
 @endsection

@@ -5,17 +5,17 @@
                 <!-- Logo -->
                 <div class="logo">
                     <a href="home-5.html">
-                        <img class="img-responsive" src="img/logo.png" alt="Logo">
+                        <img class="img-responsive" src="{{asset('img/logo.png')}}" alt="Logo">
                     </a>
                 </div>
 
                 <!-- Social -->
                 <div class="social">
                     <ul>
-                        <li><img src="img/intro-social-1.png" alt="Social Item"></li>
-                        <li><img src="img/intro-social-2.png" alt="Social Item"></li>
-                        <li><img src="img/intro-social-3.png" alt="Social Item"></li>
-                        <li><img src="img/intro-social-4.png" alt="Social Item"></li>
+                        <li><img src="{{asset('img/intro-social-1.png')}}" alt="Social Item"></li>
+                        <li><img src="{{asset('img/intro-social-2.png')}}" alt="Social Item"></li>
+                        <li><img src="{{asset('img/intro-social-3.png')}}" alt="Social Item"></li>
+                        <li><img src="{{asset('img/intro-social-4.png')}}" alt="Social Item"></li>
                     </ul>
                 </div>
 
@@ -48,23 +48,23 @@
                             <div class="dropdown-menu">
                                 <ul>
                                     <li class="has-image">
-                                        <img src="img/product/product-category-1.png" alt="Product Category Image">
+                                        <img src="{{asset('img/product/product-category-1.png')}}" alt="Product Category Image">
                                         <a href="product-grid-left-sidebar.html" title="Vegetables">Vegetables</a>
                                     </li>
                                     <li class="has-image">
-                                        <img src="img/product/product-category-2.png" alt="Product Category Image">
+                                        <img src="{{asset('img/product/product-category-2.png')}}" alt="Product Category Image">
                                         <a href="product-grid-left-sidebar.html" title="Fruits">Fruits</a>
                                     </li>
                                     <li class="has-image">
-                                        <img src="img/product/product-category-3.png" alt="Product Category Image">
+                                        <img src="{{asset('img/product/product-category-3.png')}}" alt="Product Category Image">
                                         <a href="product-grid-left-sidebar.html" title="Bread">Bread</a>
                                     </li>
                                     <li class="has-image">
-                                        <img src="img/product/product-category-4.png" alt="Product Category Image">
+                                        <img src="{{asset('img/product/product-category-4.png')}}" alt="Product Category Image">
                                         <a href="product-grid-left-sidebar.html" title="Juices">Juices</a>
                                     </li>
                                     <li class="has-image">
-                                        <img src="img/product/product-category-5.png" alt="Product Category Image">
+                                        <img src="{{asset('img/product/product-category-5.png')}}" alt="Product Category Image">
                                         <a href="product-grid-left-sidebar.html" title="Tea and coffee">Tea and coffee</a>
                                     </li>
                                 </ul>

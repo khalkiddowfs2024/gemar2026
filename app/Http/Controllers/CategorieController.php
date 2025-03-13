@@ -13,7 +13,7 @@ class CategorieController extends Controller
     public function index()
     {
         $categories = Categorie::all();
-        return view('categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -21,7 +21,8 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        //
+        //dd("salut");
+        return view('admin.categories.create');
     }
 
     /**
@@ -29,7 +30,15 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $categorie = new Categorie();
+        //dd($request->input('categorie'));
+        $categorie->categorie = $request->input('categorie');
+        if($request->hasFile('image')){
+            $categorie->image=$request->file('image')->store('categories','public');
+        }
+        $categorie->save();
+        return redirect()->route('admin_categories.index')->with('success', 'Categorie ajoutée avec succès');
     }
 
     /**
@@ -45,7 +54,8 @@ class CategorieController extends Controller
      */
     public function edit(Categorie $categorie)
     {
-        //
+        //dd($categorie);
+        return view('admin.categories.edit', compact('categorie'));
     }
 
     /**
@@ -53,6 +63,14 @@ class CategorieController extends Controller
      */
     public function update(Request $request, Categorie $categorie)
     {
+        
+        //dd($request->input('categorie'));
+        $categorie->categorie = $request->input('categorie');
+        if($request->hasFile('image')){
+            $categorie->image=$request->file('image')->store('categories','public');
+        }
+        $categorie->update();
+        return redirect()->route('admin_categories.index')->with('success', 'Categorie ajoutée avec succès');
         //
     }
 
@@ -61,6 +79,9 @@ class CategorieController extends Controller
      */
     public function destroy(Categorie $categorie)
     {
-        //
+        $categorie->delete();
+        return redirect()->route('categories.index')->with('success', 'Categorie supprimée avec success');
+
+        
     }
 }

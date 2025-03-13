@@ -20,13 +20,13 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 footer-col">
                         <div class="block text">
                             <a href="home-4.html" class="logo-footer">
-                                <img src="img/logo-3.png" alt="Logo">
+                                <img src="{{asset('img/logo-3.png')}}" alt="Logo">
                             </a>
 
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua. Ut enim ad minim ipsum dolor sit amet, consec tetur adipiscing elit ipsum dolor sit amet, consectetur adipiscing elit</p>
 
                             <div class="footer-image">
-                                <img src="img/footer-image.png" alt="Footer Image">
+                                <img src="{{asset('img/footer-image.png')}}" alt="Footer Image">
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
 
                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 align-right">
                     <div class="payment">
-                        <img src="img/payment.png" alt="Payment">
+                        <img src="{{asset('img/payment.png')}}" alt="Payment">
                     </div>
                 </div>
             </div>
