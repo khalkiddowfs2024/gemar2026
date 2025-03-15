@@ -12,7 +12,9 @@ class FamilleController extends Controller
      */
     public function index()
     {
-        //
+        $familles = Famille::all();
+        //dd($familles);
+        return view('admin.familles.index', compact('familles'));
     }
 
     /**
@@ -20,7 +22,8 @@ class FamilleController extends Controller
      */
     public function create()
     {
-        //
+        //dd("salut");
+        return view('admin.familles.create');
     }
 
     /**
@@ -28,7 +31,13 @@ class FamilleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        if($request->hasFile('image')){
+            $data['image']=$request->file('image')->store('familles','public');
+        }
+        Famille::create($data);
+        //dd($data);
+        return redirect()->route('admin_familles.index')->with('success', 'Famille ajoutée avec succès');
     }
 
     /**
@@ -44,7 +53,8 @@ class FamilleController extends Controller
      */
     public function edit(Famille $famille)
     {
-        //
+        //dd($famille);
+        return view('admin.familles.edit', compact('famille'));
     }
 
     /**
@@ -52,6 +62,12 @@ class FamilleController extends Controller
      */
     public function update(Request $request, Famille $famille)
     {
+        $data=$request->all();
+        if($request->hasFile('image')){
+            $data['image']=$request->file('image')->store('familles','public');
+        }
+        $famille->update($data);
+        return redirect()->route('admin_familles.index')->with('success', 'Famille ajoutée avec succès');
         //
     }
 
@@ -60,6 +76,10 @@ class FamilleController extends Controller
      */
     public function destroy(Famille $famille)
     {
-        //
+        //$famille->delete();
+        return redirect()->route('admin_familles.index')->with('success', 'Famille supprimée avec success');
+
+        
     }
+  
 }

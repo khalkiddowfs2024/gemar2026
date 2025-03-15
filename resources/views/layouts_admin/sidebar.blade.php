@@ -7,7 +7,14 @@
                         <i class="bi bi-speedometer2"></i><span class="nav-text">Dashboard</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="index.html">Admin Overview</a></li>
+                            <li><a href="{{route('admin_categories.index')}}">Categories</a></li>
+                            <li><a href="{{route('admin_familles.index')}}">Familles</a></li>
+                            <li><a href="{{route('admin_sous_familles.index')}}">Sous Familles</a></li>
+                            <li><a href="{{route('admin_marques.index')}}">Marques</a></li>
+                            <li><a href="{{route('admin_unites.index')}}">Unites</a></li>
+                            <li><a href="{{route('admin_mode_reglements.index')}}">Modes Reglements</a></li>
+                            <li><a href="{{route('admin_produits.index')}}">Produits</a></li>
+
                             <li><a href="index-2.html">Custommer Overview</a></li>
                             <li><a href="index-3.html">Employee Overview</a></li>
                             <li><a href="restaurant-menus.html">Menus</a></li>

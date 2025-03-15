@@ -1,0 +1,59 @@
+@extends('layouts_admin.app')
+@section('content')
+<div class="content-body container">
+    <div class="contact-form form">
+        <form action="{{route('admin_familles.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @php
+            $categories=App\Models\Categorie::all();
+            @endphp
+            <div class="form-group">
+
+                <div class="col-md-6">
+                    <label for="categorie_id">Categorie</label>
+                    <select name="categorie_id" id="categorie_id" class="form-control input-rounded">
+                        @foreach($categories as $categorie)
+                        <option value="{{$categorie->id}}">{{$categorie->categorie}}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="col-md-6">
+                    <label for="famille">Famille</label>
+                    <input type="text" class="form-control input-rounded" name="famille" placeholder="famille">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <input class="form-control" type="file" id="image" name="image" onchange="previewPicture(this)" accept=".jpg, .png, .gif" required>
+            </div>
+
+            <img src="" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+            <div class="form-group text-start">
+                <input type="submit" class="btn btn-primary" value="Enregistrer">
+            </div>
+            <img src="#" alt="" id="picture" style="max-width: 200px; margin-top: 20px;">
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    // L'image img#image
+    var picture = document.getElementById("picture");
+
+    // La fonction previewPicture
+    var previewPicture = function(e) {
+
+        // e.files contient un objet FileList
+        const [image] = e.files
+
+        // "image" est un objet File
+        if (image) {
+            // On change l'URL de l'image
+            picture.src = URL.createObjectURL(image)
+        }
+    }
+</script>
+@endsection
