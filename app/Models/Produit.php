@@ -29,4 +29,8 @@ class Produit extends Model
     {
         return $this->belongsTo(Unite::class);
     }
+    public function prix_ttc()
+    {
+        return $this->prix_ht * (1 + $this->tva /100);
+    }
 }

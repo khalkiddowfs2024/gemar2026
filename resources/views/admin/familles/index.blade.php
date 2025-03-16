@@ -2,6 +2,7 @@
 @section('content')
 <div class="content-body container">
     <a href="{{route('admin_familles.create')}}" class="btn btn-success col-3">Ajouter</a>
+    <br>
     <div class="table-responsive">
         <table class="cart-summary table ">
             <thead>
@@ -27,11 +28,11 @@
                         <a href="product-detail-left-sidebar.html" class="product-name">{{$famille->famille}}</a>
                     </td>
                     <td>
-                        <a href="{{route('admin_familles.edit',$famille->id)}}" class="btn btn-primary"><i class="bi bi-pencil"></i></a>
+                        <a href="{{route('admin_familles.edit',$famille->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                         <form action="{{route('admin_familles.destroy',$famille->id)}}" method="POST" omsubmit="return confirm(this);" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>

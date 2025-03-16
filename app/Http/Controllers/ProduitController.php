@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class ProduitController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $produits = Produit::all();
+        //dd($produits);
+        return view('admin.produits.index', compact('produits'));
     }
 
     /**
@@ -20,7 +22,8 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        //
+        //dd("salut");
+        return view('admin.produits.create');
     }
 
     /**
@@ -28,7 +31,14 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        //dd($data);
+        if($request->hasFile('image')){
+            $data['image']=$request->file('image')->store('produits','public');
+        }
+        Produit::create($data);
+        //dd($data);
+        return redirect()->route('admin_produits.index')->with('success', 'Produit ajoutée avec succès');
     }
 
     /**
@@ -44,7 +54,8 @@ class ProduitController extends Controller
      */
     public function edit(Produit $produit)
     {
-        //
+        //dd($produit);
+        return view('admin.produits.edit', compact('produit'));
     }
 
     /**
@@ -52,6 +63,12 @@ class ProduitController extends Controller
      */
     public function update(Request $request, Produit $produit)
     {
+        $data=$request->all();
+        if($request->hasFile('image')){
+            $data['image']=$request->file('image')->store('produits','public');
+        }
+        $produit->update($data);
+        return redirect()->route('admin_produits.index')->with('success', 'Produit ajoutée avec succès');
         //
     }
 
@@ -60,6 +77,9 @@ class ProduitController extends Controller
      */
     public function destroy(Produit $produit)
     {
-        //
+        //$produit->delete();
+        return redirect()->route('admin_produits.index')->with('success', 'Produit supprimée avec success');
+
+        
     }
 }

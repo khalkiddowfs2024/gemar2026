@@ -12,7 +12,9 @@ class SousFamilleController extends Controller
      */
     public function index()
     {
-        //
+        $sous_familles = SousFamille::all();
+        //dd($sous_familles);
+        return view('admin.sous_familles.index', compact('sous_familles'));
     }
 
     /**
@@ -20,7 +22,8 @@ class SousFamilleController extends Controller
      */
     public function create()
     {
-        //
+        //dd("salut");
+        return view('admin.sous_familles.create');
     }
 
     /**
@@ -28,13 +31,19 @@ class SousFamilleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        if($request->hasFile('image')){
+            $data['image']=$request->file('image')->store('sous_familles','public');
+        }
+        SousFamille::create($data);
+        //dd($data);
+        return redirect()->route('admin_sous_familles.index')->with('success', 'Sous_famille ajoutée avec succès');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(SousFamille $sousFamille)
+    public function show(SousFamille $sous_famille)
     {
         //
     }
@@ -42,24 +51,34 @@ class SousFamilleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SousFamille $sousFamille)
+    public function edit(SousFamille $sous_famille)
     {
-        //
+        //dd($sous_famille);
+        return view('admin.sous_familles.edit', compact('sous_famille'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SousFamille $sousFamille)
+    public function update(Request $request, SousFamille $sous_famille)
     {
+        $data=$request->all();
+        if($request->hasFile('image')){
+            $data['image']=$request->file('image')->store('sous_familles','public');
+        }
+        $sous_famille->update($data);
+        return redirect()->route('admin_sous_familles.index')->with('success', 'Sous_famille ajoutée avec succès');
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SousFamille $sousFamille)
+    public function destroy(SousFamille $sous_famille)
     {
-        //
+        //$sous_famille->delete();
+        return redirect()->route('admin_sous_familles.index')->with('success', 'Sous_famille supprimée avec success');
+
+        
     }
 }

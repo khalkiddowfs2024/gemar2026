@@ -7,6 +7,9 @@ use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\ModeReglementController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\UniteController;
+use App\Http\Controllers\SousFamilleController;
+
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,12 +40,12 @@ Route::put('admin/familles/{famille}/update',[FamilleController::class,'update']
 Route::get('admin/familles/{famille}/edit',[FamilleController::class,'edit'])->name('admin_familles.edit');
 Route::delete('admin/familles/{famille}/delete',[FamilleController::class,'destroy'])->name('admin_familles.destroy');
 
-Route::get('/admin/sous_familles',[FamilleController::class,'index'])->name('admin_sous_familles.index');
-Route::get('/admin/sous_familles/create',[FamilleController::class,'create'])->name('admin_sous_familles.create');
-Route::post('admin/sous_familles',[FamilleController::class,'store'])->name('admin_sous_familles.store');
-Route::put('admin/sous_familles/{sous_famille}/update',[FamilleController::class,'update'])->name('admin_sous_familles.update');
-Route::get('admin/sous_familles/{sous_famille}/edit',[FamilleController::class,'edit'])->name('admin_sous_familles.edit');
-Route::delete('admin/sous_familles/{sous_famille}/delete',[FamilleController::class,'destroy'])->name('admin_sous_familles.destroy');
+Route::get('/admin/sous_familles',[SousFamilleController::class,'index'])->name('admin_sous_familles.index');
+Route::get('/admin/sous_familles/create',[SousFamilleController::class,'create'])->name('admin_sous_familles.create');
+Route::post('admin/sous_familles',[SousFamilleController::class,'store'])->name('admin_sous_familles.store');
+Route::put('admin/sous_familles/{sous_famille}/update',[SousFamilleController::class,'update'])->name('admin_sous_familles.update');
+Route::get('admin/sous_familles/{sous_famille}/edit',[SousFamilleController::class,'edit'])->name('admin_sous_familles.edit');
+Route::delete('admin/sous_familles/{sous_famille}/delete',[SousFamilleController::class,'destroy'])->name('admin_sous_familles.destroy');
 
 Route::get('/admin/marques',[MarqueController::class,'index'])->name('admin_marques.index');
 Route::get('/admin/marques/create',[MarqueController::class,'create'])->name('admin_marques.create');

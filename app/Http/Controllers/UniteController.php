@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Famille;
 use App\Models\Unite;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class UniteController extends Controller
      */
     public function index()
     {
-        //
+        $unites = Unite::all();
+        return view('admin.unites.index', compact('unites'));
     }
 
     /**
@@ -20,7 +22,8 @@ class UniteController extends Controller
      */
     public function create()
     {
-        //
+        //dd("salut");
+        return view('admin.unites.create');
     }
 
     /**
@@ -28,7 +31,10 @@ class UniteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data=$request->all();
+        Unite::create($data);
+        return redirect()->route('admin_unites.index')->with('success', 'Unite ajoutée avec succès');
     }
 
     /**
@@ -44,7 +50,8 @@ class UniteController extends Controller
      */
     public function edit(Unite $unite)
     {
-        //
+        //dd($unite);
+        return view('admin.unites.edit', compact('unite'));
     }
 
     /**
@@ -52,6 +59,10 @@ class UniteController extends Controller
      */
     public function update(Request $request, Unite $unite)
     {
+        
+        $data=$request->all();
+        $unite->update($data);
+        return redirect()->route('admin_unites.index')->with('success', 'Unite ajoutée avec succès');
         //
     }
 
@@ -60,6 +71,9 @@ class UniteController extends Controller
      */
     public function destroy(Unite $unite)
     {
-        //
+        $unite->delete();
+        return redirect()->route('admin_unites.index')->with('success', 'Unite supprimée avec success');
+
+        
     }
 }

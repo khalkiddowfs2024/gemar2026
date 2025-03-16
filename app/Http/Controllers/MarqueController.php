@@ -12,7 +12,8 @@ class MarqueController extends Controller
      */
     public function index()
     {
-        //
+        $marques = Marque::all();
+        return view('admin.marques.index', compact('marques'));
     }
 
     /**
@@ -20,7 +21,8 @@ class MarqueController extends Controller
      */
     public function create()
     {
-        //
+        //dd("salut");
+        return view('admin.marques.create');
     }
 
     /**
@@ -28,7 +30,12 @@ class MarqueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        if($request->hasFile('image')){
+            $data['image']=$request->file('image')->store('familles','public');
+        }
+        Marque::create($data);
+        return redirect()->route('admin_marques.index')->with('success', 'Marque ajoutée avec succès');
     }
 
     /**
@@ -44,7 +51,8 @@ class MarqueController extends Controller
      */
     public function edit(Marque $marque)
     {
-        //
+        //dd($marque);
+        return view('admin.marques.edit', compact('marque'));
     }
 
     /**
@@ -52,6 +60,13 @@ class MarqueController extends Controller
      */
     public function update(Request $request, Marque $marque)
     {
+        
+        $data=$request->all();
+        if($request->hasFile('image')){
+            $data['image']=$request->file('image')->store('familles','public');
+        }
+        $marque->update($data);
+        return redirect()->route('admin_marques.index')->with('success', 'Marque ajoutée avec succès');
         //
     }
 
@@ -60,6 +75,9 @@ class MarqueController extends Controller
      */
     public function destroy(Marque $marque)
     {
-        //
+        $marque->delete();
+        return redirect()->route('marques.index')->with('success', 'Marque supprimée avec success');
+
+        
     }
 }

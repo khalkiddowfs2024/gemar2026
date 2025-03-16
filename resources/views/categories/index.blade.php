@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts_admin.app')
 @section('content')
 
 
@@ -39,7 +39,7 @@
                                         </td>
                                         <td>
                                             
-                                            <a href="{{route('categories.edit',2)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                            <a href="{{route('categories.edit',2)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                             <form action="{{route('categories.destroy',$categorie->id)}}" method="POST" style="display: inline-block;">
                                                 @csrf
                                                 @method('DELETE')
