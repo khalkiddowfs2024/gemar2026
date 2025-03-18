@@ -31,4 +31,5 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('assets/shop/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/shop/css/reponsive.css')}}">
+    @livewireStyles
 </head>

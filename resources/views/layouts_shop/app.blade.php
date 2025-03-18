@@ -41,5 +41,7 @@
     </div>
     <!-- Vendor JS -->
     @include('shop.script')
+    @livewireScripts
+
 </body>
 </html>
