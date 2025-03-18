@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\EtatController;
 use App\Http\Controllers\FamilleController;
@@ -100,3 +101,9 @@ Route::delete('admin/etats/{etat}/delete',[EtatController::class,'destroy'])->na
 
 //-----------------------------------------Shop--------------------------------
 Route::get('/shop',[ShopController::class,'index'])->name('shop.index');
+
+//-----------------------------------------Cart-----------------------------------------
+Route::get('/cart', [CartController::class, 'show_cart'])->name('cart.show');
+Route::post('/cart/add', [CartController::class, 'add_to_cart'])->name('cart.add');
+Route::get('/cart/remove/{id}', [CartController::class, 'remove_from_cart'])->name('cart.remove');
+Route::get('/cart/clear', [CartController::class, 'clear_cart'])->name('cart.clear');

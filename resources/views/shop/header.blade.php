@@ -116,10 +116,7 @@
                 <!-- Cart -->
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="block-cart dropdown">
-                        <div class="cart-title">
-                            <i class="fa fa-shopping-basket"></i>
-                            <span class="cart-count">2</span>
-                        </div>
+                        @livewire('cart')
 
                         <div class="dropdown-content">
                             <div class="cart-content">

@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="product-buttons">
-                            <a class="add-to-cart" href="#">
+                            <a class="add-to-cart" href="" wire:click.prevent="add_to_cart">
                                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                             </a>
 

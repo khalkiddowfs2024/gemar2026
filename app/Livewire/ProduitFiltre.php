@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\CartController;
 use App\Models\Produit;
+use App\Services\CartService;
 use Livewire\Component;
 
 class ProduitFiltre extends Component
@@ -15,5 +17,9 @@ class ProduitFiltre extends Component
     public function render()
     {
         return view('livewire.produit-filtre',['produits'=>$this->produits]);
+    }
+    public function add_to_cart(){
+        //CartService->add('task', TextType::class);
+        $this->dispatch('nbr_updated');
     }
 }
