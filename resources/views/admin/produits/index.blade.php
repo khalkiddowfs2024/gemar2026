@@ -26,6 +26,8 @@
                     </td>
                     <td>
                         <a href="product-detail-left-sidebar.html" class="product-name">{{$produit->designation}}</a>
+                        <br>
+                        <p class="">{{$produit->sous_famille->sous_famille}}</p>
                     </td>
                     <td>
                         <a href="product-detail-left-sidebar.html" class="product-name">{{$produit->prix_ht}}</a>
@@ -40,11 +42,11 @@
                         <a href="product-detail-left-sidebar.html" class="product-name">{{$produit->stock}}</a>
                     </td>
                     <td>
-                        <a href="{{route('admin_produits.edit',$produit->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                        <a href="{{route('admin_produits.edit',$produit->id)}}" class="btn btn-primary btn-xs" ><i class="fa fa-edit"></i></a>
                         <form action="{{route('admin_produits.destroy',$produit->id)}}" method="POST" omsubmit="return confirm(this);" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>

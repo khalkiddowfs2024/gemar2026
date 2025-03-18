@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\EtatController;
 use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\ModeReglementController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UniteController;
 use App\Http\Controllers\SousFamilleController;
 
@@ -32,13 +34,18 @@ Route::put('admin/categories/{categorie}/update',[CategorieController::class,'up
 Route::get('admin/categories/{categorie}/edit',[CategorieController::class,'edit'])->name('admin_categories.edit');
 Route::delete('admin/categories/{categorie}/delete',[CategorieController::class,'destroy'])->name('admin_categories.destroy');
 
-
-Route::get('/admin/familles',[FamilleController::class,'index'])->name('admin_familles.index');
-Route::get('/admin/familles/create',[FamilleController::class,'create'])->name('admin_familles.create');
-Route::post('admin/familles',[FamilleController::class,'store'])->name('admin_familles.store');
-Route::put('admin/familles/{famille}/update',[FamilleController::class,'update'])->name('admin_familles.update');
-Route::get('admin/familles/{famille}/edit',[FamilleController::class,'edit'])->name('admin_familles.edit');
-Route::delete('admin/familles/{famille}/delete',[FamilleController::class,'destroy'])->name('admin_familles.destroy');
+Route::prefix('admin')->group(function () {
+    
+        // Matches The "/admin/users" URL
+        Route::get('/familles',[FamilleController::class,'index'])->name('admin_familles.index');
+        Route::get('/familles/create',[FamilleController::class,'create'])->name('admin_familles.create');
+        Route::post('/familles',[FamilleController::class,'store'])->name('admin_familles.store');
+        Route::put('/familles/{famille}/update',[FamilleController::class,'update'])->name('admin_familles.update');
+        Route::get('/familles/{famille}/edit',[FamilleController::class,'edit'])->name('admin_familles.edit');
+        Route::delete('/familles/{famille}/delete',[FamilleController::class,'destroy'])->name('admin_familles.destroy');
+        // Route::resource('familles',[FamilleController::class,'destroy']);
+    
+});
 
 Route::get('/admin/sous_familles',[SousFamilleController::class,'index'])->name('admin_sous_familles.index');
 Route::get('/admin/sous_familles/create',[SousFamilleController::class,'create'])->name('admin_sous_familles.create');
@@ -81,3 +88,15 @@ Route::post('admin/fournisseurs',[FournisseurController::class,'store'])->name('
 Route::put('admin/fournisseurs/{fournisseur}/update',[FournisseurController::class,'update'])->name('admin_fournisseurs.update');
 Route::get('admin/fournisseurs/{fournisseur}/edit',[FournisseurController::class,'edit'])->name('admin_fournisseurs.edit');
 Route::delete('admin/fournisseurs/{fournisseur}/delete',[FournisseurController::class,'destroy'])->name('admin_fournisseurs.destroy');
+
+Route::get('/admin/etats',[EtatController::class,'index'])->name('admin_etats.index');
+Route::get('/admin/etats/create',[EtatController::class,'create'])->name('admin_etats.create');
+Route::post('admin/etats',[EtatController::class,'store'])->name('admin_etats.store');
+Route::put('admin/etats/{etat}/update',[EtatController::class,'update'])->name('admin_etats.update');
+Route::get('admin/etats/{etat}/edit',[EtatController::class,'edit'])->name('admin_etats.edit');
+Route::delete('admin/etats/{etat}/delete',[EtatController::class,'destroy'])->name('admin_etats.destroy');
+
+
+
+//-----------------------------------------Shop--------------------------------
+Route::get('/shop',[ShopController::class,'index'])->name('shop.index');

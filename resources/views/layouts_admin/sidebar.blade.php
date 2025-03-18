@@ -17,6 +17,8 @@
                     <li> <a href="{{route('admin_categories.index')}}">Categorie</a> </li>
                     <li> <a href="{{route('admin_marques.index')}}">Marque</a> </li>
                     <li> <a href="{{route('admin_unites.index')}}">Unite</a> </li>
+                    <li> <a href="{{route('admin_etats.index')}}">Etat</a> </li>
+
 
 
 

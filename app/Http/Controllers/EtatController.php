@@ -12,7 +12,8 @@ class EtatController extends Controller
      */
     public function index()
     {
-        //
+        $etats = Etat::all();
+        return view('admin.etats.index', compact('etats'));
     }
 
     /**
@@ -20,7 +21,8 @@ class EtatController extends Controller
      */
     public function create()
     {
-        //
+        //dd("salut");
+        return view('admin.etats.create');
     }
 
     /**
@@ -28,7 +30,9 @@ class EtatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        Etat::create($request->all());
+        return redirect()->route('admin_etats.index')->with('success', 'Etat ajoutée avec succès');
     }
 
     /**
@@ -44,7 +48,8 @@ class EtatController extends Controller
      */
     public function edit(Etat $etat)
     {
-        //
+        //dd($etat);
+        return view('admin.etats.edit', compact('etat'));
     }
 
     /**
@@ -52,7 +57,8 @@ class EtatController extends Controller
      */
     public function update(Request $request, Etat $etat)
     {
-        //
+        $etat->update($request->all());
+        return redirect()->route('admin_etats.index')->with('success', 'Etat ajoutée avec succès');
     }
 
     /**
@@ -60,6 +66,9 @@ class EtatController extends Controller
      */
     public function destroy(Etat $etat)
     {
-        //
+        $etat->delete();
+        return redirect()->route('etats.index')->with('success', 'Etat supprimée avec success');
+
+        
     }
 }

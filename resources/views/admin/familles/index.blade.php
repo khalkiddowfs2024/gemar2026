@@ -22,14 +22,14 @@
                         </a>
                     </td>
                     <td>
-                        <a href="product-detail-left-sidebar.html" class="product-name">{{$famille->categorie->categorie}}</a>
+                        <a href="product-detail-left-sidebar.html" class="product-name">{{$famille->famille}}</a>
                     </td>
                     <td>
                         <a href="product-detail-left-sidebar.html" class="product-name">{{$famille->famille}}</a>
                     </td>
                     <td>
                         <a href="{{route('admin_familles.edit',$famille->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                        <form action="{{route('admin_familles.destroy',$famille->id)}}" method="POST" omsubmit="return confirm(this);" style="display: inline-block;">
+                        <form action="{{route('admin_familles.destroy',$famille->id)}}" method="POST" onsubmit="return confirm(this)" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
@@ -41,40 +41,24 @@
 
     </div>
 </div>
-<script>
+<script type="application/javascript">
     function confirm(form) {
 
         alert('Please enter');
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-danger"
-            },
-            buttonsStyling: false
-        });
-        swalWithBootstrapButtons.fire({
+        Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel!",
-            reverseButtons: true
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire({
+                Swal.fire({
                     title: "Deleted!",
                     text: "Your file has been deleted.",
                     icon: "success"
-                });
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire({
-                    title: "Cancelled",
-                    text: "Your imaginary file is safe :)",
-                    icon: "error"
                 });
             }
         });
