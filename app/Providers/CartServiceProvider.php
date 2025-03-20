@@ -25,9 +25,6 @@ class CartServiceProvider extends ServiceProvider
     {
         // Instancier et exécuter une méthode au démarrage
         $service = $this->app->make(CartService::class);
-        //$message = $service->direBonjour("Adel");
-        //dd($message);
-        // Ajouter le message aux logs Laravel
-        //\Log::info($message);
+        //dd(CartService::clearCart());
     }
 }

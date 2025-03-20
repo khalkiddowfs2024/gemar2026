@@ -107,3 +107,4 @@ Route::get('/cart', [CartController::class, 'show_cart'])->name('cart.show');
 Route::post('/cart/add', [CartController::class, 'add_to_cart'])->name('cart.add');
 Route::get('/cart/remove/{id}', [CartController::class, 'remove_from_cart'])->name('cart.remove');
 Route::get('/cart/clear', [CartController::class, 'clear_cart'])->name('cart.clear');
+Route::get('/cart/show_cart', [CartController::class, 'show_cart'])->name('cart.show_cart');

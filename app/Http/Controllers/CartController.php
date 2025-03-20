@@ -30,7 +30,8 @@ class CartController extends Controller
    public function show_cart()
    {
        $cart = session()->get('cart', []);
-       return view('cart.index', compact('cart'));
+       
+       return view('shop.show_cart', compact('cart'));
    }
 
    // Supprimer un produit du panier
@@ -52,4 +53,5 @@ class CartController extends Controller
        session()->forget('cart');
        return redirect()->back()->with('success', 'Panier vidé');
    }
+   
 }

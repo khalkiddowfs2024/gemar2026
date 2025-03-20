@@ -4,6 +4,8 @@
         <ul class="metismenu " id="sidebarNav">
             <li class="nav-static-title">Personal</li>
             <li class="active">
+                <li><a href="{{route('shop.index')}}" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Boutique</span></a> </li>
+
                 <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
                     <i class="nav-icon ti ti-rocket"></i>
                     <span class="nav-title">Dashboards</span>
@@ -18,18 +20,6 @@
                     <li> <a href="{{route('admin_marques.index')}}">Marque</a> </li>
                     <li> <a href="{{route('admin_unites.index')}}">Unite</a> </li>
                     <li> <a href="{{route('admin_etats.index')}}">Etat</a> </li>
-
-
-
-
-                    <li> <a href='index-ecommerce.html'>Ecommerce</a> </li>
-                    <li> <a href='index-car-dealer.html'>Car Dealer</a> </li>
-                    <li> <a href='index-stock-market.html'>Stock Market</a> </li>
-                    <li> <a href='index-dating.html'>Dating</a> </li>
-                    <li> <a href='index-job-portal.html'>Job Portal</a> </li>
-                    <li> <a href='index-crm.html'>CRM</a> </li>
-                    <li> <a href='index-real-estate.html'>Real Estate</a> </li>
-                    <li> <a href='index-crypto-currency.html'>Crypto Currency</a> </li>
                 </ul>
             </li>
             <li><a href="app-chat.html" aria-expanded="false"><i class="nav-icon ti ti-comment"></i><span class="nav-title">Chat</span></a> </li>
